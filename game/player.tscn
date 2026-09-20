@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt73uxppxuis"]
+
+[ext_resource type="Script" uid="uid://bt4s7sepjbu0e" path="res://game/scripts/Player.cs" id="1_dadds"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5y0b"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_du4nq"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 15
+script = ExtResource("1_dadds")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_w5y0b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_du4nq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9342854, 0.35652602, 0, -0.35652602, 0.9342854, 0, 2.1613789, 4.2326508)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.005986492, 0.9999821, 0, -0.9999821, 0.005986492, 0, 18.393253, 0)
+light_energy = 15.335
+spot_range = 31.633492

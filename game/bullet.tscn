@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpyti3woufsp3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m5v5u"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgh50"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3mm70"]
+material = SubResource("StandardMaterial3D_sgh50")
+radius = 0.05
+height = 0.1
+
+[node name="Bullet" type="Area3D"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_m5v5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_3mm70")
+skeleton = NodePath("../CollisionShape3D")
