@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dujymvgwkk6hm"]
+
+[ext_resource type="Script" uid="uid://b6mbhdpxc3knf" path="res://game/player.gd" id="1_oa506"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oa506"]
+albedo_color = Color(1, 0.08627451, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtpaf"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ata60"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_oa506")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_xtpaf")
+
+[node name="character" type="CharacterBody3D" parent="."]
+script = ExtResource("1_oa506")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="character"]
+shape = SubResource("BoxShape3D_ata60")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="character"]
+
+[node name="Camera3D" type="Camera3D" parent="character"]
+transform = Transform3D(1, 0, 0, 0, 0.9539947, 0.29982346, 0, -0.29982346, 0.9539947, 0, 3.1065912, 7.7938976)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="character"]
+transform = Transform3D(1, 0, 0, 0, 0.005986492, 0.9999821, 0, -0.9999821, 0.005986492, 0, 18.393253, 0)
+light_energy = 15.335
+spot_range = 31.633492
