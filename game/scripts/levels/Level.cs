@@ -37,6 +37,7 @@ public partial class Level : Godot.Node3D
   {
 	this.targets.Remove(target);
   this.targets_killed_count += 1;
+  GenerateShootingTarget();
   }
   public void GenerateShootingTarget()
   {

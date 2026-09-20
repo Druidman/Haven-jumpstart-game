@@ -9,6 +9,7 @@ public partial class Player : CharacterBody3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		
 		if (Input.IsActionPressed("rotate_left"))
 		{
 			Rotation = new Vector3(Rotation.X, Rotation.Y + 0.1f, Rotation.Z);
@@ -52,6 +53,10 @@ public partial class Player : CharacterBody3D
 		}
 
 		Velocity = velocity;
+		if (GlobalPosition.Y < -20)
+		{
+			GlobalPosition = new Vector3(0f, 20f, 0f);
+		}
 		MoveAndSlide();
 	}
 }
